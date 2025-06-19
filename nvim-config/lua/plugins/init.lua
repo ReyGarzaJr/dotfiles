@@ -15,14 +15,22 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").lua_ls.setup({
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup({
         settings = {
           Lua = {
             diagnostics = { globals = { "vim" } },
           },
         },
       })
+      lspconfig.rust_analyzer.setup({})
     end,
+  },
+  {
+    "hrsh7th/nvim-cmp"
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp"
   },
   {
     "mason-org/mason.nvim",

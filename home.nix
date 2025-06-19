@@ -22,17 +22,41 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.git
+  home.packages = with pkgs; [
+    git
+    ripgrep
+
+    rustc
+    cargo
+    clippy
+    rustfmt
   ];
 
   programs.git = {
     enable = true;
     userName = "Rey Garza";
     userEmail = "21699257+ReyGarzaJr@users.noreply.github.com";
-    config = {
+    extraConfig = {
       init.defaultBranch = "main";
     };
+  };
+
+  programs.ripgrep = {
+    enable = true;
+  };
+
+  programs.neovim.enable = true;
+
+  xdg.configFile."nvim" = {
+    enable = true;
+    recursive = true;
+    force = true;
+    source = ./nvim-config;
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
