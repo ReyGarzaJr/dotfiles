@@ -25,6 +25,17 @@ return {
         },
       })
 
+      lspconfig.rust_analyzer.setup({
+        settings = {
+          ['rust-analyzer'] = {
+            diagnostics = {
+              enable = true;
+            },
+          },
+        },
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,
