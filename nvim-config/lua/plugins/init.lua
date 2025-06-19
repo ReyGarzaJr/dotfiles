@@ -14,6 +14,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({
@@ -23,14 +24,15 @@ return {
           },
         },
       })
-      lspconfig.rust_analyzer.setup({})
+
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
     end,
-  },
-  {
-    "hrsh7th/nvim-cmp"
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp"
   },
   {
     "mason-org/mason.nvim",
