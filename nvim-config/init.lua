@@ -19,7 +19,7 @@ vim.o.tabstop=2
 vim.o.shiftwidth=2
 vim.o.autoindent=true
 vim.o.smartindent=true
-vim.o.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.o.completeopt = "menuone,noselect,noinsert"
 vim.o.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option('updatetime', 300)
 
