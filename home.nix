@@ -26,10 +26,9 @@
     git
     ripgrep
 
-    rustc
-    cargo
-    clippy
-    rustfmt
+    mosh
+
+    rustup
   ];
 
   programs.git = {

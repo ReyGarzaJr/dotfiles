@@ -8,7 +8,7 @@ return {
     opts =   {
       keymap = { preset = 'default' },
 
-      completion = { documentation = { auto_show = false } },
+      completion = { documentation = { auto_show = true } },
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },

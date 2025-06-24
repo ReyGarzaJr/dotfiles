@@ -5,7 +5,7 @@ vim.notify = function(msg, level, opts)
   -- Levels: ERROR=3, WARN=2, INFO=1, DEBUG=0
   local WARN = vim.log.levels.WARN
 
-  if level >= WARN then
+  if level == nil or level >= WARN then
     -- Show warning and error normally
     vim.api.nvim_echo({{msg}}, true, {})
   else
@@ -22,3 +22,6 @@ vim.o.smartindent=true
 vim.o.completeopt = "menuone,noselect,noinsert"
 vim.api.nvim_set_option('updatetime', 300)
 
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
+vim.lsp.enable('lua_ls')

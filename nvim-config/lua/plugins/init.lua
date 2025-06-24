@@ -14,36 +14,11 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = { globals = { "vim" } },
-          },
-        },
-      })
-
-      lspconfig.rust_analyzer.setup({
-        settings = {
-          ['rust-analyzer'] = {
-            diagnostics = {
-              enable = true;
-            },
-          },
-        },
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
-
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-      })
-    end,
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6',
+    lazy = false,
   },
   {
     "mason-org/mason.nvim",
