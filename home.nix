@@ -23,6 +23,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    nushell
+
     git
     ripgrep
 
@@ -52,6 +54,14 @@
     force = true;
     source = ./nvim-config;
   };
+
+  xdg.configFile."nushell" = {
+    enable = true;
+    recursive = true;
+    force = true;
+    source = ./nushell-config;
+  };
+
 
   programs.direnv = {
     enable = true;
