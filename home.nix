@@ -31,6 +31,8 @@
     mosh
 
     rustup
+
+    claude-code
   ];
 
   programs.git = {

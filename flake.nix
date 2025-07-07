@@ -13,10 +13,17 @@
   outputs =
     { nixpkgs, home-manager, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = _: true;
+        };
+      };
     in
     {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
       homeConfigurations."reygar" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
